@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS answer42_db;
+
+CREATE DATABASE answer42_db;
