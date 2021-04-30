@@ -27,6 +27,10 @@
     border-bottom-style: solid;
   }
   
+  .logo-image {
+    max-width: 64px;
+  }
+
   main {
     display: flex;
     flex-wrap: wrap;
