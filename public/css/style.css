@@ -7,6 +7,9 @@
     --dark: #182c23;
     --error: rgb(228, 46, 1);
     --border-radius: 0.3rem;
+    --nav: #FFFF00;
+    --nav-alt: #D40000;
+    --black: #000000;
   }
   
   body {
@@ -27,9 +30,16 @@
     border-bottom-style: solid;
   }
   
-  .logo-image {
-    max-width: 64px;
+  .logo {
+    max-width: 96px;
+    position: relative;
+    margin-left: 12px;
+    margin-right: 12px;
   }
+/* 
+  .brand-logo::before {
+    content: url("../images/dont-panic.png");
+  } */
 
   main {
     display: flex;
@@ -46,8 +56,15 @@
   }
   
   nav {
-    display: flex;
-    background-color: var(--secondary);
+    /* display: block!important; */
+    background-color: var(--black);
+    height: 10rem;
+    align-items: center;
+    padding-top: 12px;
+
+  }
+  nav a {
+    font-weight: 500;
   }
   
   .menu-container {

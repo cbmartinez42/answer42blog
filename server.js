@@ -18,6 +18,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(require('./controllers'));
 
+app.get('/', (req, res) => {
+  res.render('home');
+})
+
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log(`Now listening on http://localhost:${PORT}`));
 });
