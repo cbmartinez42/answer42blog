@@ -1,8 +1,8 @@
-const options = document.getElementById('#mobile-demo');
+const hamburgerMenu = document.getElementById('#mobile-demo');
 
 document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('.sidenav');
-  var instances = M.Sidenav.init(elems, options);
+  var instances = M.Sidenav.init(elems, hamburgerMenu);
 });
 
 // document.addEventListener('DOMContentLoaded', function() {
@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
 //     var instances = M.Modal.init(elems, options);
 //   });
 
-$(document).ready(function() {
-    $('input#input_text, textarea#textarea2').characterCounter();
-  });
+// $(document).ready(function() {
+//     $('input#post_name, textarea#post_text').characterCounter();
+//   });
+

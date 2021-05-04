@@ -21,7 +21,7 @@ Comments.init(
       },
     },
     comment_text: {
-      type: DataTypes.STRING(1000),
+      type: DataTypes.STRING(3000),
       allowNull: true,
     },
     created_by: {

@@ -5,6 +5,8 @@ const {Posts, Comments, Users} = require('../../models');
 router.get('/', async (req, res) => {
   try {
   const postsData = await Posts.findAll({
+    limit: 20, 
+    order: [['updated_at', 'DESC']],
     include: [
       {
         model: Users, 
