@@ -1,4 +1,7 @@
 
         {{comment_text}}
-        {{User.username}}
-        {{format_date User.createdAt}}
+
+        <div class="card-action comment-author grey-text">
+          <p>{{User.username}} on {{format_date User.createdAt}}</p>
+        </div>
+

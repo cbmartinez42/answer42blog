@@ -46,24 +46,7 @@
   #input_text {
     width: 75rem;
   }
-/* 
-  .brand-logo::before {
-    content: url("../images/dont-panic.png");
-  } */
 
-  /* main {
-    display: flex;
-    flex-wrap: wrap;
-    flex-grow: 1;
-  }
-  
-  aside {
-    flex: 0;
-    background-color: var(--tertiary);
-    padding: 80px;
-    text-align: left;
-    color: var(--light);
-  } */
   
   nav {
     /* display: block!important; */
@@ -81,7 +64,12 @@
     font-style: italic;
   }
 
-
+  .comment-author, .comment-author > p {
+    padding-bottom: 5px!important;
+  }
+/* .btn {
+  background-color: red;
+} */
   
   /* LAYOUT */
   /* .container {
