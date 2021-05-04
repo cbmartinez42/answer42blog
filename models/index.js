@@ -10,10 +10,12 @@ Users.hasMany(Posts, {
 
 Users.hasMany(Comments, {
     foreignKey: 'created_by',
+    onDelete: 'CASCADE'
 });
 // post has many comments
 Posts.hasMany(Comments, {
-    foreignKey: 'post_id'
+    foreignKey: 'post_id', 
+    onDelete: 'CASCADE',
 })
 
 // post belongs to one user
@@ -23,7 +25,7 @@ Posts.belongsTo(Users, {
 
 // comment has one user
 Comments.belongsTo(Users, {
-    foreignKey: 'created_by'
+    foreignKey: 'created_by',
 })
 
 module.exports = {

@@ -17,7 +17,7 @@ Posts.init(
       allowNull: false,
     },
     post_text: {
-      type: DataTypes.STRING(1000),
+      type: DataTypes.STRING(5000),
       allowNull: true,
     },
     created_by: {

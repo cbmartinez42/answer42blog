@@ -1,6 +1,7 @@
 <head>
   <meta charset="UTF-8">
   <title>answer42</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -13,35 +14,46 @@
       <a href="/" class="brand-logo">answer42</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="#!">home</a></li>
+        <li><a href="/">home</a></li>
         <li><a href="#!">dashboard</a></li>
-        <li><a href="#!">login</a></li>
+        <li><a href="/login">login/sign up</a></li>
         {{!-- <li><a href="mobile.html">Mobile</a></li> --}}
       </ul>
     </div>
   </nav>
 
   <ul class="sidenav" id="mobile-demo">
-    <li><a href="#">home</a></li>
+    <li><a href="/">home</a></li>
     <li><a href="#">dashboard</a></li>
-    <li><a href="#">login</a></li>
+    <li><a href="/login">login/sign up</a></li>
     {{!-- <li><a href="mobile.html">Mobile</a></li> --}}
   </ul>
-        
+<div class="container">     
 {{{ body }}}
-  {{!-- <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        Answer: 42
-      </h1>
-    </header>
-      <main class="container container-fluid mt-5">
-        {{{ body }}}
-      </main>
+
+  <!-- Modal Trigger -->
+  {{!-- <a class="waves-effect waves-light btn modal-trigger" href="#new-post">Modal</a> --}}
+
+  <!-- Modal Structure -->
+  {{!-- <div id="new-post" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
   </div> --}}
 
+<a href="/new" class="btn-floating btn-large waves-effect waves-light red new-post-btn"><i class="material-icons" title="New Post">add</i></a>
 
+</div>   
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
   <script src="/js/materialize.js"></script>
+  <script src="/js/index.js"></script>
   </body>
 
 </html>
