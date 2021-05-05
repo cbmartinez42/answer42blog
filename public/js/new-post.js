@@ -3,8 +3,8 @@
 const newPostHandler = async (event) => {
   event.preventDefault();
 
-  const post_name = document.querySelector('#post_name')//.value.trim();
-  const post_text = document.querySelector('#post_text')//.value.trim();
+  const post_name = document.querySelector('#post_name').value;
+  const post_text = document.querySelector('#post_text').value;
 
 if (post_name && post_text) {
   const response = await fetch(`/api/posts`, {
@@ -16,7 +16,6 @@ if (post_name && post_text) {
     },
     
   });
-  console.log(response)
   if (response.ok) {
     console.log(response)
     document.location.replace(`/posts/${response.id}`)
