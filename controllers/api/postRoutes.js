@@ -9,7 +9,7 @@ router.post('/', async (req, res) => {
       post_text: req.body.post_text,
       created_by: null, // need to update this when user auth is working!!!! ---------------------------------------------------------
     })
-    res.status(200).json(postData) // or postData?
+    res.status(200).json(postData.id) // or postData?
   } catch (err) {
     res.status(400).json(err);
   }

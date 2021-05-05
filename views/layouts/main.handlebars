@@ -15,8 +15,13 @@
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="/">home</a></li>
-        <li><a href="#!">dashboard</a></li>
+        <li><a href="/dashboard">dashboard</a></li>
+
+        {{#if logged_in}}
+        <li><a href="/login">logout</a></li>
+        {{else}}
         <li><a href="/login">login/sign up</a></li>
+        {{/if}}
         {{!-- <li><a href="mobile.html">Mobile</a></li> --}}
       </ul>
     </div>
@@ -24,8 +29,14 @@
 
   <ul class="sidenav" id="mobile-demo">
     <li><a href="/">home</a></li>
-    <li><a href="#">dashboard</a></li>
+    <li><a href="/dashboard">dashboard</a></li>
+
+    {{#if logged_in}}
+    <li><a href="/logout">logout</a></li>
+    
+    {{else}}
     <li><a href="/login">login/sign up</a></li>
+    {{/if}}
     {{!-- <li><a href="mobile.html">Mobile</a></li> --}}
   </ul>
 <div class="container">     

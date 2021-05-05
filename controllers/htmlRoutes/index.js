@@ -28,7 +28,7 @@ router.get('/', async (req, res) => {
 } catch (err) {
   res.status(500).json(err)
 }
-})
+});
   
 
 router.get('/post/:id', async (req, res)=> {
@@ -55,12 +55,15 @@ router.get('/post/:id', async (req, res)=> {
   } catch (err) {
     res.status(500).json(err)
   }
-})
+});
 
 
-router.get('/login', (req, res) => res.render('login'))
+router.get('/login', (req, res) => res.render('login'));
 
-router.get('/new', (req, res) => res.render('new-post'))
+router.get('/new', (req, res) => res.render('new-post'));
 
+router.get('/dashboard',  (req, res) => res.render('dashboard'));
+
+router.get('/logout', (req, res) => res.render('logout'));
 
 module.exports = router;

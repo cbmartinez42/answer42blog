@@ -17,8 +17,8 @@ if (post_name && post_text) {
     
   });
   if (response.ok) {
-    console.log(response)
-    document.location.replace(`/posts/${response.id}`)
+    // document.location.replace(`/posts/${response.id}`)
+    document.location.replace('/');
   } else {
     alert('Bummer. Something went wrong.')
   }
@@ -26,5 +26,10 @@ if (post_name && post_text) {
   alert('You must enter both a title and text')
 }
 };
+
+$(document).ready(function() {
+  $('input#post_name, textarea#post_text').characterCounter();
+});
+
 
 document.querySelector('#submit-btn').addEventListener('click', newPostHandler)

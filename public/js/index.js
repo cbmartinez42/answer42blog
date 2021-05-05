@@ -10,7 +10,5 @@ document.addEventListener('DOMContentLoaded', function() {
 //     var instances = M.Modal.init(elems, options);
 //   });
 
-$(document).ready(function() {
-    $('input#post_name, textarea#post_text').characterCounter();
-  });
+
 
