@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { Users } = require('../../models/users');
+const Users = require('../../models/users');
+// const bcrypt = require('bcrypt')
 
 router.post('/', async (req, res) => {
     try {
@@ -11,7 +12,6 @@ router.post('/', async (req, res) => {
             email: req.body.email,
             password: req.body.password,
         });
-        console.log('this is userdata>>>>>>>>>>', userData)
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
@@ -19,34 +19,25 @@ router.post('/', async (req, res) => {
             res.status(200).json(userData);
         });
     } catch (err) {
+        console.log(err)
         res.status(400).json({message: "Don't panic. But one of those was wrong. Please try again", err})
     }
 });
 
-// router.post('/', async (req, res) => {
-//     try {
-//         const newUser = req.body;
-//         newUser.password = await bcrypt.hash(req.body.password, 10);
-//         const userData = await Users.create(newUser);
-//         res.status(200).json(userData);
-//     } catch (err) {
-//         res.status(400).json(err);
-//     }
-// })
-
 router.post('/login', async (req, res) => {
     try {
         const userData = await Users.findOne({ where: { email: req.body.email } });
-
         if (!userData) {
-            res.status(400).json({ message: "Don't panic. But one of those was wrong. Please try again"});
+            res.status(404).json({ message: "Don't panic. But one of those was wrong. Are you sure your have your towel? Please try again"});
             return;
         }
-
+        // console.log('before bcrypte', req.body.password)
+        // req.body.password = await bcrypt.hash(req.body.password, 10);
+        // console.log(req.body.password)
         const validPassword = await userData.checkPassword(req.body.password);
-
+        console.log(validPassword)
         if (!validPassword) {
-            res.status(400).json({ message: "Don't panic. But one of those was wrong. Please try again"});
+            res.status(404).json({ message: "Don't panic. But one of those was wrong. Are you sure your have your towel? Please try again"});
             return;
         }
 
@@ -54,7 +45,7 @@ router.post('/login', async (req, res) => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
 
-            res.json({ user: userData, message: "Welcome! Please make sure you have your towel."});
+            res.json({ user: userData, message: "Welcome! Please make sure your towel is handy at all times while visiting!"});
         });
     } catch (err) {
         res.status(400).json(err);

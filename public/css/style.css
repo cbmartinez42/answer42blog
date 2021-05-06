@@ -43,6 +43,10 @@
     margin-right: 12px;
   }
 
+  .brand-logo {
+    font-family: 'Zen Dots', cursive;
+  }
+
   #input_text {
     width: 75rem;
   }
@@ -58,8 +62,20 @@
   }
   nav a {
     font-weight: 500;
+    font-family: 'Righteous', cursive;
   }
-  
+  .babelfish {
+    max-height: 128px;
+    position: absolute;
+    top: 1%;
+    left: 46%;
+    /* left: 80% */
+  }
+
+  h5 {
+    font-family: 'Righteous', cursive;
+  }
+
   blockquote {
     font-style: italic;
   }
@@ -98,3 +114,9 @@
     align-items: center;
   }
    */
+
+   @media only screen and (max-width: 992px) {
+    .babelfish {
+     left: 80%;
+   }
+  }

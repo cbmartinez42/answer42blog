@@ -1,1 +1,11 @@
-This is the dashboard
+
+{{#if logged_in}}
+<h5 class="center-align">Welcome {{User.username}}! Please make sure your towel is handy at all times while visiting.</h5>
+
+
+
+{{else}}
+
+<h6 class="center-align">You must be <a href="/login">logged in</a> (and have your towel) to view the dashboard.</h6>
+
+{{/if}}
