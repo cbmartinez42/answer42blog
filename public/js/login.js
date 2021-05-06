@@ -36,12 +36,14 @@ const signupHandler = async (event) => {
         body: JSON.stringify({ email, password }),
         headers: { 'Content-Type': 'application/json' },
       });
+      await response.json();
       if (response.ok) {
-        // If successful, redirect the browser to the profile page
+        // If successful, redirect the browser to the dashboard page
         document.location.replace('/dashboard');
       } else {
+        
         console.log(response)
-        alert(JSON.stringify(responseMessage));
+        alert(response.statusText);
       }
     }
   };

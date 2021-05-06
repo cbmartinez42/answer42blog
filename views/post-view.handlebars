@@ -7,11 +7,11 @@
         <div class="row">
         {{#if logged_in}}
           <div class="input-field col s12">
-            <textarea id="textarea2" class="materialize-textarea" data-length="3000"></textarea>
-            <label for="textarea2">Comment? "I like the cover," he said. "‘Don’t Panic.’ It’s the first helpful or intelligible thing anybody’s said to me all day."</label>
+            <textarea id="comment-text" class="materialize-textarea" data-length="3000"></textarea>
+            <label for="comment-text">Comment? "I like the cover," he said. "‘Don’t Panic.’ It’s the first helpful or intelligible thing anybody’s said to me all day."</label>
           </div>
         </div>
-        <button class="btn waves-effect waves-light center-align" type="submit" name="action">Add comment
+        <button id="submit-btn" class="btn waves-effect waves-light center-align" type="submit" name="action">Add comment
             <i class="material-icons right">send</i>
         </button
       {{else}}
@@ -37,3 +37,9 @@
   </div>
 
 {{/each}}
+
+{{#if logged_in}}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="../js/comment.js"></script>
+{{else}}
+{{/if}}

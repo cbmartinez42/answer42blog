@@ -1,23 +1,32 @@
+
+
+{{#if logged_in}}
+<div class="row">
+  <form class="col s10">
+    <h5 class="center-align">"His first theory was that if human beings didn't keep exercising their lips, their mouths probably shriveled up."</h5>
     <div class="row">
-      <form class="col s12">
-        <h5 class="center-align">"His first theory was that if human beings didn't keep exercising their lips, their mouths probably shriveled up."</h5>
-        <div class="row">
-          <div class="input-field col s6">
-            <input id="post_name" type="text" data-length="100">
-            <label for="post_name">Title: It is a mistake to think you can solve any major problems just with potatoes.</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <textarea id="post_text" class="materialize-textarea" data-length="5000"></textarea>
-            <label for="post_text">Body: In the beginning the Universe was created. This has made a lot of people very angry and been widely regarded as a bad move.</label>
-          </div>
-        </div>
-        <button class="btn waves-effect waves-light center-align" id="submit-btn" type="submit" name="action">Preach on!
-            <i class="material-icons right">send</i>
-        </button
-      </form>
+      <div class="input-field col s10">
+        <input id="post_name" type="text" data-length="100">
+        <label for="post_name">Title: It is a mistake to think you can solve any major problems just with potatoes.</label>
+      </div>
     </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea id="post_text" class="materialize-textarea" data-length="5000"></textarea>
+        <label for="post_text">Body: In the beginning the Universe was created. This has made a lot of people very angry and been widely regarded as a bad move.</label>
+      </div>
+    </div>
+    <button class="btn waves-effect waves-light center-align" id="submit-btn" type="submit" name="action">Preach on!
+        <i class="material-icons right">send</i>
+    </button
+  </form>
+</div>
 
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="./js/new-post.js"></script>
+
+{{else}}
+<h5 class="center-align">You must be <a href="/login">logged in</a> (and have your towel) to make a post.</h5>
+{{/if}}
+
+

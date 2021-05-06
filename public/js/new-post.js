@@ -1,4 +1,3 @@
-// const submitBtn = document.getElementById('#submit-btn');
 
 const newPostHandler = async (event) => {
   event.preventDefault();

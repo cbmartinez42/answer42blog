@@ -7,9 +7,9 @@ router.post('/', async (req, res) => {
      const postData = await Posts.create({
       post_name: req.body.post_name,
       post_text: req.body.post_text,
-      created_by: null, // need to update this when user auth is working!!!! ---------------------------------------------------------
+      created_by: req.session.user_id, // need to update this when user auth is working!!!! ---------------------------------------------------------
     })
-    res.status(200).json(postData.id) // or postData?
+    res.status(200).json(postData) // or postData?
   } catch (err) {
     res.status(400).json(err);
   }
