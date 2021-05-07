@@ -3,20 +3,24 @@ const newCommentHandler = async (event) => {
     event.preventDefault();
   
     const comment_text = document.querySelector('#comment-text').value;
-  
+    const url = window.location.pathname;
+    const id = url.substring(url.lastIndexOf('/') + 1);
+
   if (comment_text) {
     const response = await fetch(`/api/comment`, {  // api/comments 
       method: 'POST',
-      body: JSON.stringify({comment_text}),
+      body: JSON.stringify({id, comment_text}),
       headers: {
         'Content-Type': 'application/json', 
   
       },
       
     });
+    console.log(response)
     if (response.ok) {
       // document.location.replace(`/posts/${response.id}`)
-      document.location.replace('/');
+      // document.location.replace('/');
+      window.location.reload();
     } else {
       alert('Bummer. Something went wrong.')
     }

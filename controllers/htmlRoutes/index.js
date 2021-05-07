@@ -2,7 +2,6 @@ const router = require('express').Router();
 const {Posts, Comments, Users} = require('../../models');
 const withAuth = require('../../utils/auth');
 
-
 router.get('/', async (req, res) => {
   try {
   const postsData = await Posts.findAll({
@@ -28,7 +27,82 @@ router.get('/', async (req, res) => {
 });
   
 
+
 router.get('/post/:id', async (req, res)=> {
+  try {
+    const postsData = await Posts.findByPk(req.params.id, {
+      include: [
+        {
+          model: Users, 
+          attributes: ['username']
+        },
+        {
+          model: Comments,
+          include: [{model: Users}],
+          attributes: ['comment_text', 'created_by']
+        }
+      ]
+    });
+
+    if (!postsData) {
+      res.status(404).json({message: "No post with that ID. Try again"})
+      return;
+    }
+
+    const post = postsData.get({ plain: true });
+
+    res.render('post-view', {
+      ...post, logged_in: req.session.logged_in 
+    })
+  } catch (err) {
+    res.status(500).json(err)
+  }
+});
+
+router.get('/edit-post/:id', async (req, res) => {
+  try {
+    const postData = await Posts.findByPk(req.params.id) //<------------- might not be right
+
+    if (!postData) {
+      res.status(404).json({message: "No post with that ID. Try again"})
+      return;
+    }
+
+    const post = postData.get({ plain: true });
+
+    res.render('edit-post', {
+      ...post, logged_in: req.session.logged_in
+    })
+  } catch (err) {
+    res.status(500).json(err)
+  }
+});
+
+
+router.get('/new', (req, res) => res.render('new-post', {logged_in: req.session.logged_in} ));
+
+router.get('/dashboard', withAuth, async (req, res) => {
+  try {
+    const userData = await Users.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password']},
+        include: [{
+        model: Posts, 
+        attributes: ['id', 'post_name', 'post_text', 'created_at'],
+      }],
+    });
+    const user = userData.get({plain: true});
+    // console.log(user)
+    res.render('dashboard', {
+      ...user, 
+      logged_in: true
+    });
+    
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/edit-post/:id', withAuth, async (req, res)=> {
   try {
     const postsData = await Posts.findByPk(req.params.id, {
       include: [
@@ -46,38 +120,13 @@ router.get('/post/:id', async (req, res)=> {
 
     const post = postsData.get({ plain: true });
 
-    res.render('post-view', {
+    res.render('edit-post', {
       ...post, logged_in: req.session.logged_in 
     })
   } catch (err) {
     res.status(500).json(err)
   }
 });
-
-router.get('/new', (req, res) => res.render('new-post', {logged_in: req.session.logged_in} ));
-
-router.get('/dashboard', withAuth, async (req, res) => {
-  try {
-    const userData = await Users.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password']},
-      include: [{
-        model: Posts, 
-        attributes: ['post_name', 'post_text']
-      }],
-    });
-    const user = userData.get({plain: true});
-
-    res.render('dashboard', {
-      ...user,
-      logged_in: true
-    });
-    
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-
 
 
 

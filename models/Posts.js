@@ -27,9 +27,10 @@ Posts.init(
         key: 'id',
       },
     },
-    // created_date: {
-    //   type: DataTypes.DATE,
-    // },
+    edited: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
   },
   {
     sequelize,

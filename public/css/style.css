@@ -26,6 +26,7 @@
     position: fixed;
     bottom: 20;
     right: 20;
+    background-color: rgba(250, 4, 4, 0.65)!important;
   }
 
   header {
@@ -72,6 +73,10 @@
     /* left: 80% */
   }
 
+  /* .btn {
+    background-color: red;
+  } */
+
   h5 {
     font-family: 'Righteous', cursive;
   }
@@ -102,18 +107,13 @@
   .logout {
     margin-top: 100px;
   }
-/* .btn {
-  background-color: red;
-} */
+
   
-  /* LAYOUT */
-  /* .container {
-    display: flex;
-    flex-flow: column wrap;
-    align-content: flex-start;
-    align-items: center;
-  }
-   */
+  .waves-effect.waves-red .waves-ripple {
+    /* The alpha value allows the text and background color
+    of the button to still show through. */
+     background-color: rgba(250, 4, 4, 0.65)!important;
+   }
 
    @media only screen and (max-width: 992px) {
     .babelfish {

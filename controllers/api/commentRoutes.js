@@ -6,11 +6,12 @@ router.post('/', async (req, res) => {
   try {
     console.log(req.body)
     const commentData = await Comments.create({
+    post_id: req.body.id,
     comment_text: req.body.comment_text,
-    created_by: req.session.user_id, // need to update this when user auth is working!!!! ---------------------------------------------------------
+    created_by: req.session.user_id,
     })
     
-    res.status(200).json(commentData) // or postData?
+    res.status(200).json(commentData) 
   } catch (err) {
     res.status(400).json(err);
   }
