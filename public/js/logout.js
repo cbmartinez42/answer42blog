@@ -14,4 +14,4 @@ const init = setTimeout(async () => {
     }
   }, 3000);
 
-init();
+// init();

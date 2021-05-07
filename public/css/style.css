@@ -108,6 +108,10 @@
     margin-top: 100px;
   }
 
+  .edited {
+    font-style: italic;
+    font-size: 16px;
+  }
   
   .waves-effect.waves-red .waves-ripple {
     /* The alpha value allows the text and background color

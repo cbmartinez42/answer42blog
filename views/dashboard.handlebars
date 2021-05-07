@@ -10,7 +10,7 @@
         <div class="col s12 m8 offset-m2 center-align">
             <div class="card blue-grey darken-1">
                 <div class="card-content white-text">
-                    <a href="/post/{{posts.id}}"> <span class="card-title">{{posts.post_name}}</span></a>
+                    <a href="/post/{{posts.id}}"> <span class="card-title">{{posts.post_name}} {{#if edited}} (edited) {{/if}}</span></a>
                     <p>{{posts.post_text}}</p>
                 </div>
                 <div class="card-action">

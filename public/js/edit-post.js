@@ -1,4 +1,4 @@
-async function editFormHandler(event) {
+async function editPostHandler(event) {
   event.preventDefault();
   const post_name = document.querySelector('#post_name').value;
   const post_text = document.querySelector('#post_text').value;
@@ -17,7 +17,7 @@ async function editFormHandler(event) {
   });
 
   if (response.ok) {
-    document.location.replace(`/posts/${id}`);
+    document.location.replace(`/post/${id}`);
   } else {
     alert(response.statusText);
   }
@@ -27,4 +27,4 @@ $(document).ready(function() {
   $('input#post_name, textarea#post_text').characterCounter();
 });
 
-document.querySelector('#submit-btn').addEventListener('click', editFormHandler);
+document.querySelector('#submit-btn').addEventListener('click', editPostHandler);
