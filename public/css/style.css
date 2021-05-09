@@ -52,7 +52,7 @@
     width: 75rem;
   }
 
-    nav {
+  nav {
     background-color: var(--black);
     height: 10rem;
     align-items: center;
@@ -71,7 +71,9 @@
 
   }
 
-
+  #typedtext {
+    margin-top: 6rem;
+  }
 
   h5 {
     font-family: 'Righteous', cursive;

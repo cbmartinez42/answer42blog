@@ -14,7 +14,7 @@ const hbs = exphbs.create({ helpers });
 
 const sess = {
   secret: 'Infinite Monkey Theorem',
-  cookie: {},
+  cookie: { maxAge: 2700000}, // must log in again after 45 minutes
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({

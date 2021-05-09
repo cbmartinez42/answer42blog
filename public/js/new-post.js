@@ -16,7 +16,7 @@ if (post_name && post_text) {
     
   });
   if (response.ok) {
-    document.location.replace('/');
+    document.location.replace('/dashboard');
   } else {
     alert('Bummer. Something went wrong.')
   }
