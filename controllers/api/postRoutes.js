@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const Posts = require('../../models/posts');
+// trying a different Posts capitalization
+const Posts = require('../../models/Posts');
 const withAuth = require('../../utils/auth');
 
 // create a new post
