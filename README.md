@@ -11,6 +11,8 @@
 ## Description
 This is an original full-stack application for a tech blog/forum. This application utilizes Sequelize, Express, bcrypt as well as the Handlebars template engine to access the MySQL database and present the user with a rich, fun experience while visiting the blog. 
 
+The deployed application can be located at: https://hidden-thicket-72035.herokuapp.com/
+
 ### Features
 * The site is responsive and the navbar menu condenses to a hamburger-style menu on medium and smaller size displays
 * A custom favicon of the legendary Babelfish is displayed in the browser tab
