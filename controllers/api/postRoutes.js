@@ -2,13 +2,13 @@ const router = require('express').Router();
 const Posts = require('../../models/posts');
 const withAuth = require('../../utils/auth');
 
-
+// create a new post
 router.post('/', withAuth, async (req, res) => {
   try {
      const postData = await Posts.create({
       post_name: req.body.post_name,
       post_text: req.body.post_text,
-      created_by: req.session.user_id, // need to update this when user auth is working!!!! ---------------------------------------------------------
+      created_by: req.session.user_id, 
     })
     res.status(200).json(postData) // or postData?
   } catch (err) {
@@ -16,10 +16,10 @@ router.post('/', withAuth, async (req, res) => {
   }
 })
 
+// update an existing post
 router.put('/:id', withAuth, async (req, res) => {
   const id = req.params.id;
   try {
-    // console.log(req.body)
     const postData = await Posts.update({
       post_name: req.body.post_name,
       post_text: req.body.post_text,
@@ -40,6 +40,7 @@ router.put('/:id', withAuth, async (req, res) => {
   }
 })
 
+// delete a post
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     postData = await Posts.destroy({

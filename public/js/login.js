@@ -1,7 +1,7 @@
 
 const signupHandler = async (event) => {
     event.preventDefault();
-  
+  // set variables for columns in user table
     const first_name = document.querySelector('#signup-first-name').value.trim();
     const last_name = document.querySelector('#signup-last-name').value.trim();
     const username = document.querySelector('#signup-username').value.trim();
@@ -42,7 +42,7 @@ const signupHandler = async (event) => {
         document.location.replace('/dashboard');
       } else {
         
-        console.log(response)
+      
         alert(response.statusText);
       }
     }

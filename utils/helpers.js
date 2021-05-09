@@ -9,7 +9,4 @@ module.exports = {
         console.log(something)
       }
 
-      // Handlebars.registerHelper("log", function(something) {
-      //   console.log(something);
-      // });
 };

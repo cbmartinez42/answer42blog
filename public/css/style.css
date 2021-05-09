@@ -52,9 +52,7 @@
     width: 75rem;
   }
 
-  
-  nav {
-    /* display: block!important; */
+    nav {
     background-color: var(--black);
     height: 10rem;
     align-items: center;
@@ -70,12 +68,10 @@
     position: absolute;
     top: 8px;
     left: 45%;
-    /* left: 80% */
+
   }
 
-  /* .btn {
-    background-color: red;
-  } */
+
 
   h5 {
     font-family: 'Righteous', cursive;
@@ -114,8 +110,6 @@
   }
   
   .waves-effect.waves-red .waves-ripple {
-    /* The alpha value allows the text and background color
-    of the button to still show through. */
      background-color: rgba(250, 4, 4, 0.65)!important;
    }
 

@@ -2,6 +2,7 @@ const router = require('express').Router();
 const {Posts, Comments, Users} = require('../../models');
 const withAuth = require('../../utils/auth');
 
+// get posts, order by most recent and render home page
 router.get('/', async (req, res) => {
   try {
   const postsData = await Posts.findAll({
@@ -26,8 +27,7 @@ router.get('/', async (req, res) => {
 }
 });
   
-
-
+// display individual post and related comments
 router.get('/post/:id', async (req, res)=> {
   try {
     const postsData = await Posts.findByPk(req.params.id, {
@@ -59,9 +59,10 @@ router.get('/post/:id', async (req, res)=> {
   }
 });
 
-router.get('/edit-post/:id', async (req, res) => {
+// get individual post data and render page to edit
+router.get('/edit-post/:id', withAuth, async (req, res) => {
   try {
-    const postData = await Posts.findByPk(req.params.id) //<------------- might not be right
+    const postData = await Posts.findByPk(req.params.id)
 
     if (!postData) {
       res.status(404).json({message: "No post with that ID. Try again"})
@@ -78,9 +79,10 @@ router.get('/edit-post/:id', async (req, res) => {
   }
 });
 
-
+// render page to create a new post
 router.get('/new', (req, res) => res.render('new-post', {logged_in: req.session.logged_in} ));
 
+// get posts associated with the logged in user and display on the dashboard
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
     const userData = await Users.findByPk(req.session.user_id, {
@@ -91,7 +93,6 @@ router.get('/dashboard', withAuth, async (req, res) => {
       }],
     });
     const user = userData.get({plain: true});
-    // console.log(user)
     res.render('dashboard', {
       ...user, 
       logged_in: true
@@ -102,37 +103,10 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
-router.get('/edit-post/:id', withAuth, async (req, res)=> {
-  try {
-    const postsData = await Posts.findByPk(req.params.id, {
-      include: [
-        {
-          model: Users, 
-          attributes: ['username']
-        },
-        {
-          model: Comments,
-          include: [{model: Users}],
-          attributes: ['comment_text', 'created_by']
-        }
-      ]
-    });
-
-    const post = postsData.get({ plain: true });
-
-    res.render('edit-post', {
-      ...post, logged_in: req.session.logged_in 
-    })
-  } catch (err) {
-    res.status(500).json(err)
-  }
-});
-
-
-
-
+// render logout page
 router.get('/logout', (req, res) => res.render('logout', {logged_in: req.session.logged_in}));
 
+// render login/signup page
 router.get('/login', (req, res) => res.render('login'));
 
 module.exports = router;

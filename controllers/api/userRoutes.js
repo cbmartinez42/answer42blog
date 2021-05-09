@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const Users = require('../../models/users');
-// const bcrypt = require('bcrypt')
 
+// create a user
 router.post('/', async (req, res) => {
     try {
         console.log(req.body);
@@ -24,6 +24,7 @@ router.post('/', async (req, res) => {
     }
 });
 
+// verify email and password and create session
 router.post('/login', async (req, res) => {
     try {
         const userData = await Users.findOne({ where: { email: req.body.email } });
@@ -31,11 +32,8 @@ router.post('/login', async (req, res) => {
             res.status(404).json({ message: "Don't panic. But one of those was wrong. Are you sure your have your towel? Please try again"});
             return;
         }
-        // console.log('before bcrypte', req.body.password)
-        // req.body.password = await bcrypt.hash(req.body.password, 10);
-        // console.log(req.body.password)
+
         const validPassword = await userData.checkPassword(req.body.password);
-        console.log(validPassword)
         if (!validPassword) {
             res.status(404).json({ message: "Don't panic. But one of those was wrong. Are you sure your have your towel? Please try again"});
             return;
@@ -52,6 +50,7 @@ router.post('/login', async (req, res) => {
     }
 })
 
+// logout
 router.post('/logout', (req, res) => {
     if (req.session.logged_in) {
       req.session.destroy(() => {

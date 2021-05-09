@@ -16,7 +16,6 @@ if (post_name && post_text) {
     
   });
   if (response.ok) {
-    // document.location.replace(`/posts/${response.id}`)
     document.location.replace('/');
   } else {
     alert('Bummer. Something went wrong.')

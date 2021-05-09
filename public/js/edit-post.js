@@ -1,5 +1,7 @@
+
 async function editPostHandler(event) {
   event.preventDefault();
+  // set variables for database columns
   const post_name = document.querySelector('#post_name').value;
   const post_text = document.querySelector('#post_text').value;
   const url = window.location.pathname;
@@ -22,7 +24,7 @@ async function editPostHandler(event) {
     alert(response.statusText);
   }
 }
-
+// character counter
 $(document).ready(function() {
   $('input#post_name, textarea#post_text').characterCounter();
 });

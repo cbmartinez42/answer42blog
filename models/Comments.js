@@ -1,5 +1,4 @@
 const { Model, DataTypes } = require('sequelize');
-// const { Users, Posts } = require('.');
 const sequelize = require('../config/connection');
 
 class Comments extends Model {}
@@ -31,9 +30,6 @@ Comments.init(
         key: 'id',
       },
     },
-    // created_date: {
-    //   type: DataTypes.DATE,
-    // },
   },
   {
     sequelize,

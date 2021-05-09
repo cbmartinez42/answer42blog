@@ -9,12 +9,11 @@
 - [Questions](#questions)
 
 ## Description
-This is an original full-stack application for a tech blog/forum. This 
+This is an original full-stack application for a tech blog/forum. This application utilizes Sequelize, Express, bcrypt as well as the Handlebars template engine to access the MySQL database and present the user with a rich, fun experience while visiting the blog. 
 
 ### Features
-* Utilizes Node.js with the Sequelize module to allow for functionality 
-    * Sequelize uses model associations to manage relationships between models
-    * Route management functionality assisted by Sequelize as well
+* The site is responsive and the navbar menu condenses to a hamburger-style menu on medium and smaller size displays
+* User Login/Signup is provided in a simple fashion, and is prompted before the user can create a new post, comment, or access the Dashboard
 
 
 
