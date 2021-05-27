@@ -24,8 +24,8 @@
   
   .new-post-btn {
     position: fixed;
-    bottom: 20;
-    right: 20;
+    bottom: 20px;
+    right: 20px;
     background-color: rgba(250, 4, 4, 0.65)!important;
   }
 
