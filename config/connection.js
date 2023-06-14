@@ -11,7 +11,7 @@ if (process.env.JAWSDB_URL) {
     process.env.DB_USER,
     process.env.DB_PASSWORD,
     {
-      dialect: 'mysql',
+      dialect: 'mysql'
     },
   );
 }
